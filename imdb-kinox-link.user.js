@@ -2,7 +2,7 @@
 // @name        imdb - kinox link
 // @namespace   firehawk86
 // @include     http://www.imdb.com/title/*
-// @version     1.2
+// @version     1.3
 // @grant       GM_xmlhttpRequest
 // ==/UserScript==
 
@@ -93,6 +93,28 @@ if (silent_mode == false) {
           if(availableOnKinox) {
               create_a_link();
           }
+      },
+      ontimeout: function(response) {
+         // create a link anyway
+         create_a_link();
+         // make error visible
+         var elements = document.querySelectorAll("div.secondary-info");
+         for (i = 0; i < elements.length; i++) {
+            if (elements[i].innerHTML == "KINOX") {
+               elements[i].innerHTML = "Connection Error"
+            }
+         }
+      },
+      onerror: function(response) {
+         // create a link anyway
+         create_a_link();
+         // make error visible
+         var elements = document.querySelectorAll("div.secondary-info");
+         for (i = 0; i < elements.length; i++) {
+            if (elements[i].innerHTML == "KINOX") {
+               elements[i].innerHTML = "Connection Error"
+            }
+         }
       }
     });
 }
