@@ -1,11 +1,5 @@
 # imdb-kinox-link
 
-![kinox.to](https://i.imgur.com/iSUSD6r.png)
-
-
-
-![imdb userscript](https://i.imgur.com/WP3NlYR.png)
-
-
-
 ![example](https://i.imgur.com/TA9QK8J.jpg)
+
+[install](https://github.com/fire-hawk-86/imdb-kinox-link/raw/master/imdb-kinox-link.user.js)
