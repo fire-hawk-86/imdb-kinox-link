@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        imdb - kinox link
 // @namespace   firehawk86
-// @include     http://www.imdb.com/title/*
+// @include     http*://www.imdb.com/title/*
 // @version     1.31
 // @grant       GM_xmlhttpRequest
 // ==/UserScript==
