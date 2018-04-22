@@ -4,6 +4,7 @@
 // @include     http://www.imdb.com/title/*
 // @version     1.3
 // @grant       GM_xmlhttpRequest
+// @downloadURL https://raw.githubusercontent.com/fire-hawk-86/imdb-kinox-link/master/imdb-kinox-link.user.js
 // ==/UserScript==
 
 /*******************************************************************
