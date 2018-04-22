@@ -16,7 +16,9 @@
 // switches (Change this value if you want to either 'false' or 'true')
 
 // If set to true, this script won't check the kinox.to page if the movie is available or not
-var silent_mode = false;
+var silent_mode = true;
+
+var domain = 'http://kinox.tv';
 
 // get the IMDB title ID (example tt1234567)
 var movieId = document.querySelector("meta[property='pageId']").getAttribute('content');
@@ -32,7 +34,7 @@ function create_a_link() {
         kinox.setAttribute('class', 'watch-option secondary-watch-option has-watchoptions');
         kinox.setAttribute('data-href', '');
         kinox.setAttribute('data-optiontype', 'instant');
-        kinox.setAttribute('onClick', "javascript:window.open('http://kinox.to/Search.html?q="+movieId+"', '_blank')");
+        kinox.setAttribute('onClick', "javascript:window.open('"+domain+"/Search.html?q="+movieId+"', '_blank')");
         kinox.innerHTML =`
             <div class="watch-icon instant"></div>
             <div class="secondary-info">KINOX</div>
@@ -53,12 +55,12 @@ function create_a_link() {
         bar.innerHTML =`
             <div class="watchbar2 article" style="border-top: 1px solid #CCC;">
                 <div class="showtime  full-table">
-                    <div onClick="javascript:window.open('http://kinox.to/Search.html?q=`+movieId+`', '_blank')" class="winner-option watch-option " data-offsite="1" data-href="" title="Watch Now">
+                    <div onClick="javascript:window.open('`+domain+`/Search.html?q=`+movieId+`', '_blank')" class="winner-option watch-option " data-offsite="1" data-href="" title="Watch Now">
                         <div id="watchbar2" class="watch-icon winner provider amazon-instant-video" jsz4x73="" hidden="">
                         </div>
                         <div class="info table-cell">
                             <h2>
-                               <a href="//kinox.to" class="segment-link " target="_blank"> Kinox </a>
+                               <a href="`+domain+`" class="segment-link " target="_blank"> Kinox </a>
                             </h2>
                             <p>Watch Now</p>
                         </div>
@@ -82,7 +84,7 @@ function create_a_link() {
 if (silent_mode == false) {
     GM_xmlhttpRequest({
       method: "GET",
-      url: "http://kinox.to/Search.html?q="+movieId,
+      url: domain+"/Search.html?q="+movieId,
       onload: function(response) {
           // write the retrieved HTML data from Kinox to a DOM variable
           var kinoxHtml = document.createElement("html");
